@@ -365,7 +365,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </html>
 
 
-<!-- <form action="/ecp/owning-company" method="post" enctype="multipart/form-data">
+<!--<form action="/ecp/owning-company" method="post" enctype="multipart/form-data">
 		<p>emp_number</p>
 		<input id="empNum" type="text" name="emp_number"/>
 		<p>owned</p>
@@ -374,6 +374,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>amount</p>
 		<input type="number" name="amount"/>
 		<p>Foto</p>
-		<input type="file" name="image"/>
-		<br><input type="submit" value="submit"/>
-	</form> -->
+		<input type="file" name="image"/> -->

@@ -5,8 +5,27 @@ class FormEcpModel extends CI_Model {
 	}
 
 	public function getEmployee(){
-		$query = $this->db->like('emp_number', $_GET['emp_number'])->get('employee', 5);
+		$query = $this->db->like('emp_number', $_POST['emp_number'])->get('employee', 5);
 		return $query->result();
+	}
+
+	public function getData($id){
+		$relations = [
+			'employee',
+			'accesscard',
+			'companyinspected',
+			'emailclose',
+			'itequipment',
+			'owningcompany',
+			'personalprotective',
+			'phoneaccount',
+			'storeequipment'
+		];
+		$result = [];
+		foreach($relations as $relation){
+			$result[$relation] = $this->db->get_where($relation, ['emp_number' => $id])->row();
+		}
+		return $result;
 	}
 
 	public function employeeResign($data){
@@ -26,6 +45,10 @@ class FormEcpModel extends CI_Model {
 
 	public function updateTo($table, $data, $id){
 		$this->db->update($table, $data, ['emp_number' => $id]);
+	}
+
+	public function approveTo($table, $id){
+		$this->db->update($table, ['approve_status' => true], ['emp_number' => $id]);
 	}
 
 	private function employeeValidation($emp_number){
