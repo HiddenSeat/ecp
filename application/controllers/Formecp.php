@@ -104,18 +104,19 @@ class Formecp extends CI_Controller {
 			'emp_number' => $_POST['emp_number'],
 			'building' => $_POST['building'],
 			'locker' => $_POST['locker'],
-			'other' => $_POST['other']
+			'insurance' => $_POST['insurance'],
+			'badge' => $_POST['badge']
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
 	}
 
 	public function storeEquipment(){
-		$table = 'outItem';
+		$table = 'storeEquipment';
 		$data = [
 			'emp_number' => $_POST['emp_number'],
 			'equipment' => $_POST['equipment'],
-			'outItem' => $_POST['item']
+			'out_item' => $_POST['item']
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
@@ -125,6 +126,7 @@ class Formecp extends CI_Controller {
 		$table = 'companyInspected';
 		$data = [
 			'emp_number' => $_POST['emp_number'],
+			'company' => $_POST['company'],
 			'inspect_by' => $_POST['inspect_by'],
 			'amount' => $_POST['amount']
 		];
