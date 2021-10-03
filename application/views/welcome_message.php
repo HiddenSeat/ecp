@@ -93,11 +93,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="form-group col-6">
 				<label for="empDate">Day</label>
-				<input id="empDate" class="form-control" readonly type="date">
+				<input id="empDate" class="form-control" type="date">
 			</div>
 			<div class="form-group col-6">
 				<label for="empReason">Reason</label>
-				<input id="empReason" class="form-control" readonly type="text">
+				<input id="empReason" class="form-control" type="text">
 			</div>
 		</div>
 		<button class="btn btn-primary mt-2" id="submitEmployee" onclick="showForm()">Submit</button>
@@ -390,8 +390,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			document.getElementById("empName").value = curEmp.emp_name
 			document.getElementById("empDesignation").value = curEmp.emp_designation
 			document.getElementById("empDepartement").value = curEmp.emp_department
-			document.getElementById("empDate").value = '<?= date("Y-m-d") ?>'
-			document.getElementById("empReason").value = curEmp.emp_name
+			// document.getElementById("empDate").value = '<?= date("Y-m-d") ?>'
+			// document.getElementById("empReason").value = curEmp.emp_name
 		}
 		// load Data
 		$(document).ready(function () {
