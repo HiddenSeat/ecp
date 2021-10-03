@@ -2,15 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Formecp extends CI_Controller {
-
 	public function __construct(){
 		parent::__construct();
+		$this->load->library('session');
 		$this->load->helper(array('form', 'url'));
 		$this->load->model('formecpmodel');
 	}
 
 	public function index(){
 		$this->load->view('welcome_message');
+	}
+
+	public function form(){
+		$result = $this->formecpmodel->getData($this->session->userdata('id'));
+		$this->load->view('employee_resign', $result);
 	}
 
 	public function employeeAjax(){
@@ -24,9 +29,9 @@ class Formecp extends CI_Controller {
 			'emp_number' => $_POST['emp_number'],
 			'leave_date' => $_POST['leave_date']
 		];
-		$result = $this->formecpmodel->employeeResign($data);
-		header('Content-Type: application/json');
-		echo json_encode($result);
+	 	$this->formecpmodel->employeeResign($data);
+		$this->session->set_userdata('id', $data['emp_number']);
+		redirect('/form');
 	}
 
 	public function owningCompany(){
@@ -40,6 +45,7 @@ class Formecp extends CI_Controller {
 		}
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
+		redirect('/form');
 	}
 
 	public function itEquipment(){
@@ -54,6 +60,7 @@ class Formecp extends CI_Controller {
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
+		redirect('/form');
 	}
 
 	public function emailClose(){
@@ -63,6 +70,7 @@ class Formecp extends CI_Controller {
 			'emp_number' => $_POST['emp_number']
 		];
 		$this->formecpmodel->insertTo($table, $data);
+		redirect('/form');
 	}
 
 	public function phoneAccount(){
@@ -75,6 +83,7 @@ class Formecp extends CI_Controller {
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
+		redirect('/form');
 	}
 
 	public function vehicle(){
@@ -85,6 +94,7 @@ class Formecp extends CI_Controller {
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
+		redirect('/form');
 	}
 
 	public function personalProtective(){
@@ -97,7 +107,8 @@ class Formecp extends CI_Controller {
 			'shoes' => $_POST['shoes']
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
-		$this->uploadImage($table, $id);	
+		$this->uploadImage($table, $id);
+		redirect('/form');	
 	}
 
 	public function accessCard(){
@@ -111,6 +122,7 @@ class Formecp extends CI_Controller {
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
+		redirect('/form');
 	}
 
 	public function storeEquipment(){
@@ -122,6 +134,7 @@ class Formecp extends CI_Controller {
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
+		redirect('/form');
 	}
 
 	public function companyInspected(){
@@ -134,6 +147,7 @@ class Formecp extends CI_Controller {
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
 		$this->uploadImage($table, $id);
+		redirect('/form');
 	}
 
 	private function uploadImage($table, $id){

@@ -53,6 +53,7 @@ $route['default_controller'] = 'formecp/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
+$route['form'] = 'formecp/form';
 $route['employee'] = 'formecp/employeeAjax';
 $route['employee/resign']['post'] = 'formecp/employeeResign';
 $route['owning-company']['post'] = 'formecp/owningCompany';

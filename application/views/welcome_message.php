@@ -17,19 +17,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<input type="date" name="leave_date"/>
 		<br><input type="submit" value="submit"/>
 	</form>
-	<br><br>
-
-	<form action="/ecp/owning-company" method="post" enctype="multipart/form-data">
-		<p>emp_number</p>
-		<input type="text" name="emp_number"/>
-		<p>owned</p>
-		<input type="radio" name="owned" value="0"/>FALSE
-		<input type="radio" name="owned" value="1"/>TRUE
-		<p>amount</p>
-		<input type="number" name="amount"/>
-		<p>Foto</p>
-		<input type="file" name="image"/>
-		<br><input type="submit" value="submit"/>
-	</form>
 </body>
 </html>

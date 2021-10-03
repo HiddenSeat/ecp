@@ -5,13 +5,11 @@ class FormEcpModel extends CI_Model {
 	}
 
 	public function getEmployee(){
-		$query = $this->db->like('emp_number', $_GET['emp_number'])->get('employee', 5);
+		$query = $this->db->like('emp_number', $_POST['emp_number'])->get('employee', 5);
 		return $query->result();
 	}
 
-	public function employeeResign($data){
-		$update = $this->db->update('employee', ['leave_date' => $data['leave_date']], ['emp_number' => $data['emp_number']]);
-
+	public function getData($id){
 		$relations = [
 			'employee',
 			'accesscard',
@@ -25,9 +23,13 @@ class FormEcpModel extends CI_Model {
 		];
 		$result = [];
 		foreach($relations as $relation){
-			$result[$relation] = $this->db->get_where($relation, ['emp_number' => $data['emp_number']])->result();
+			$result[$relation] = $this->db->get_where($relation, ['emp_number' => $id])->row();
 		}
 		return $result;
+	}
+
+	public function employeeResign($data){
+		$update = $this->db->update('employee', ['leave_date' => $data['leave_date']], ['emp_number' => $data['emp_number']]);
 	}
 
 	public function insertTo($table, $data){
