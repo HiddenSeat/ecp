@@ -37,13 +37,13 @@ class Formecp extends CI_Controller {
 			$data['amount'] = $_POST['amount'];
 		}
 		$id = $this->formecpmodel->insertTo($table, $data);
-		
 		$this->uploadImage($table, $id);
 	}
 
 	public function itEquipment(){
 		$table = 'itEquipment';
 		$data = [
+			'emp_number' => $_POST['emp_number'],
 			'laptop' => $_POST['laptop'],
 			'mobile' => $_POST['mobile'],
 			'ipad' => $_POST['ipad'],
@@ -57,7 +57,8 @@ class Formecp extends CI_Controller {
 	public function emailClose(){
 		$table = 'emailClose';
 		$data = [
-			'email' => $_POST['email']
+			'email' => $_POST['email'],
+			'emp_number' => $_POST['emp_number']
 		];
 		$this->formecpmodel->insertTo($table, $data);
 	}
@@ -65,6 +66,7 @@ class Formecp extends CI_Controller {
 	public function phoneAccount(){
 		$table = 'phoneAccount';
 		$data = [
+			'emp_number' => $_POST['emp_number'],
 			'transfer' => $_POST['transfer'],
 			'terminate' => $_POST['terminate'],
 			'retain' => $_POST['retain']
@@ -76,6 +78,7 @@ class Formecp extends CI_Controller {
 	public function vehicle(){
 		$table = 'vehicle';
 		$data = [
+			'emp_number' => $_POST['emp_number'],
 			'status' => $_POST['status']
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
@@ -85,19 +88,20 @@ class Formecp extends CI_Controller {
 	public function personalProtective(){
 		$table = 'personalProtective';
 		$data = [
+			'emp_number' => $_POST['emp_number'],
 			'uniform' => $_POST['uniform'],
 			'helmet' => $_POST['helmet'],
 			'glasses' => $_POST['glasses'],
 			'shoes' => $_POST['shoes']
 		];
 		$id = $this->formecpmodel->insertTo($table, $data);
-		$this->uploadImage($table, $id);
-		
+		$this->uploadImage($table, $id);	
 	}
 
 	public function accessCard(){
 		$table = 'accessCard';
 		$data = [
+			'emp_number' => $_POST['emp_number'],
 			'building' => $_POST['building'],
 			'locker' => $_POST['locker'],
 			'other' => $_POST['other']
@@ -109,6 +113,7 @@ class Formecp extends CI_Controller {
 	public function storeEquipment(){
 		$table = 'outItem';
 		$data = [
+			'emp_number' => $_POST['emp_number'],
 			'equipment' => $_POST['equipment'],
 			'outItem' => $_POST['item']
 		];
@@ -119,6 +124,7 @@ class Formecp extends CI_Controller {
 	public function companyInspected(){
 		$table = 'companyInspected';
 		$data = [
+			'emp_number' => $_POST['emp_number'],
 			'inspect_by' => $_POST['inspect_by'],
 			'amount' => $_POST['amount']
 		];
@@ -143,6 +149,5 @@ class Formecp extends CI_Controller {
 			}
 			show_error('jpg, png and jpeg format only!', 422, 'Bad Input');
 		}
-		show_error('Image is broken, please change to other image', 422, 'Image Error');
 	}
 }

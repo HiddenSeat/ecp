@@ -10,8 +10,7 @@ class FormEcpModel extends CI_Model {
 	}
 
 	public function employeeResign($data){
-		$update = $this->db->update_string('employee', ['leave_date' => $data['leave_date']], 'emp_number = "'.$data['emp_number'].'"');
-		$this->db->query($update);
+		$update = $this->db->update('employee', ['leave_date' => $data['leave_date']], ['emp_number' => $data['emp_number']]);
 	}
 
 	public function insertTo($table, $data){
@@ -19,15 +18,14 @@ class FormEcpModel extends CI_Model {
 		$checkIfExists = $this->db->get_where($table, ['emp_number' => $data['emp_number']]);
 		if(!$checkIfExists->result()){
 			$insert = $this->db->insert($table, $data);
-			return $this->db->insert_id();
+			return $data['emp_number'];
 		}
 		$this->updateTo($table, $data, $data['emp_number']);
 		return $data['emp_number'];
 	}
 
 	public function updateTo($table, $data, $id){
-		$update = $this->db->update_string($table, $data, 'emp_number = "'.$id.'"');
-		$this->db->query($update);
+		$this->db->update($table, $data, ['emp_number' => $id]);
 	}
 
 	private function employeeValidation($emp_number){

@@ -14,7 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>emp_number</p>
 		<input type="text" name="emp_number"/>
 		<p>owned</p>
-		<input type="text" name="owned"/>
+		<input type="radio" name="owned" value="0"/>FALSE
+		<input type="radio" name="owned" value="1"/>TRUE
 		<p>amount</p>
 		<input type="number" name="amount"/>
 		<p>Foto</p>
