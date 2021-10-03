@@ -70,7 +70,6 @@ $route['form/store-equipment']['post'] = 'formecp/storeEquipment';
 $route['form/company-inspected']['post'] = 'formecp/companyInspected';
 
 //approve url, method post
-$route['employee/resign/approve']['post'] = 'formecp/employeeResignApprove';
 $route['form/owning-company/approve']['post'] = 'formecp/owningCompanyApprove';
 $route['form/it-equipment/approve']['post'] = 'formecp/itEquipmentApprove';
 $route['form/phone-account/approve']['post'] = 'formecp/phoneAccountApprove';
