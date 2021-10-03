@@ -22,42 +22,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			margin-left: 20px;
 		}
 
-		    /*the container must be positioned relative:*/
-				.autocomplete {
-      position: relative;
-      display: inline-block;
-    }
+		/*the container must be positioned relative:*/
+		.autocomplete {
+			position: relative;
+			display: inline-block;
+		}
 
 
-    .autocomplete-items {
-      position: absolute;
-      border: 1px solid #d4d4d4;
-      border-bottom: none;
-      border-top: none;
-      z-index: 99;
-      /*position the autocomplete items to be the same width as the container:*/
-      top: 100%;
-      left: 0;
-      right: 0;
-    }
+		.autocomplete-items {
+			position: absolute;
+			border: 1px solid #d4d4d4;
+			border-bottom: none;
+			border-top: none;
+			z-index: 99;
+			/*position the autocomplete items to be the same width as the container:*/
+			top: 100%;
+			left: 0;
+			right: 0;
+		}
 
-    .autocomplete-items div {
-      padding: 10px;
-      cursor: pointer;
-      background-color: #fff;
-      border-bottom: 1px solid #d4d4d4;
-    }
+		.autocomplete-items div {
+			padding: 10px;
+			cursor: pointer;
+			background-color: #fff;
+			border-bottom: 1px solid #d4d4d4;
+		}
 
-    /*when hovering an item:*/
-    .autocomplete-items div:hover {
-      background-color: #e9e9e9;
-    }
+		/*when hovering an item:*/
+		.autocomplete-items div:hover {
+			background-color: #e9e9e9;
+		}
 
-    /*when navigating through the items using the arrow keys:*/
-    .autocomplete-active {
-      background-color: DodgerBlue !important;
-      color: #ffffff;
-    }
+		/*when navigating through the items using the arrow keys:*/
+		.autocomplete-active {
+			background-color: DodgerBlue !important;
+			color: #ffffff;
+		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -70,39 +70,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<main class="container">
 		<div class="row">
 			<div class="form-group col-6">
-				<label for="employeeName">Employee Name</label>
-				<input class="form-control" type="text">
+				<label for="empName">Employee Name</label>
+				<input id="empName" class="form-control" readonly type="text">
 			</div>
 			<div class="form-group col-6">
-				<label for="employeeName">Designation</label>
-				<input class="form-control" type="text">
+				<label for="empDesignation">Designation</label>
+				<input id="empDesignation" class="form-control" readonly type="text">
 			</div>
 		</div>
 		<div class="row">
 			<div class="form-group col-6">
-				<label for="employeeName">Employee Number</label>
+				<label for="empNum">Employee Number</label>
 				<div class="autocomplete w-100" style="width:300px;">
-					<input class="form-control " id="empNum" type="text" name="myCountry">
+					<input class="form-control " id="empNum" type="text" name="myCountry" autocomplete="off">
 				</div>
 			</div>
 			<div class="form-group col-6">
-				<label for="employeeName">Departement</label>
-				<input class="form-control" type="text">
+				<label for="empDepartement">Departement</label>
+				<input id="empDepartement" class="form-control" readonly type="text">
 			</div>
 		</div>
 		<div class="row">
 			<div class="form-group col-6">
-				<label for="employeeName">Day</label>
-				<input class="form-control" type="text">
+				<label for="empDate">Day</label>
+				<input id="empDate" class="form-control" readonly type="date">
 			</div>
 			<div class="form-group col-6">
-				<label for="employeeName">Reason</label>
-				<input class="form-control" type="text">
+				<label for="empReason">Reason</label>
+				<input id="empReason" class="form-control" readonly type="text">
 			</div>
 		</div>
 		<button class="btn btn-primary mt-2" id="submitEmployee" onclick="showForm()">Submit</button>
 
-		<section id="employeeForm" class="">
+		<section id="employeeForm" class="d-none">
 			<h1 class="text-center">Form</h1>
 			<article>
 				<h2>1. Dues Blalbalbal</h2>
@@ -299,6 +299,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						b.addEventListener("click", function (e) {
 							/*insert the value for the autocomplete text field:*/
 							inp.value = this.getElementsByTagName("input")[0].value;
+							fillEmployeDetail(inp.value)
 							/*close the list of autocompleted values,
 							(or any other open lists of autocompleted values:*/
 							closeAllLists();
@@ -384,7 +385,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				console.log("nothing")
 			}
 		});
-
+		function fillEmployeDetail(e) {
+			let curEmp = dataEmployee.find(x => x.emp_number === e)
+			document.getElementById("empName").value = curEmp.emp_name
+			document.getElementById("empDesignation").value = curEmp.emp_designation
+			document.getElementById("empDepartement").value = curEmp.emp_department
+			document.getElementById("empDate").value = '<?= date("Y-m-d") ?>'
+			document.getElementById("empReason").value = curEmp.emp_name
+		}
 		// load Data
 		$(document).ready(function () {
 			fetch(`http://localhost/ecp/employee?emp_number=a`)
@@ -393,8 +401,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					dataEmployee = [];
 					dataNumber = [];
 					dataEmployee = data
+					console.log(data)
 					dataEmployee.map(data => {
-						console.log(data.emp_number)
 						dataNumber.push(data.emp_number)
 					})
 					autocomplete(document.getElementById("empNum"), dataNumber);
