@@ -69,7 +69,7 @@ $route['form/access-card']['post'] = 'formecp/accessCard';
 $route['form/store-equipment']['post'] = 'formecp/storeEquipment';
 $route['form/company-inspected']['post'] = 'formecp/companyInspected';
 
-//approve url, method post
+//approve url, method get
 $route['form/owning-company/approve'] = 'formecp/owningCompanyApprove';
 $route['form/it-equipment/approve'] = 'formecp/itEquipmentApprove';
 $route['form/phone-account/approve'] = 'formecp/phoneAccountApprove';

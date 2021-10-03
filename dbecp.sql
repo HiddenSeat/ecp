@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2021 at 09:37 AM
+-- Generation Time: Oct 03, 2021 at 01:46 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -95,7 +95,8 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`emp_number`, `emp_name`, `emp_company`, `emp_designation`, `emp_status`, `emp_department`, `emp_section`, `emp_marital`, `emp_ethnic`, `emp_education`, `emp_positon`, `emp_sex`, `emp_religion`, `emp_joindate`, `leave_date`) VALUES
-('A-001', 'Uzumaki Bayu', 'PT  sejahtera', 'Design1', 'Kerja', 'IT-01', 'Programmer', 'Tidak', 'Manusia biasa', 'SMK', 'Programmer', 'Laki', 'Relic', '2021-10-01', NULL);
+('A-001', 'Uzumaki Bayu', 'PT  sejahtera', 'Design1', 'Kerja', 'IT-01', 'Programmer', 'Tidak', 'Manusia biasa', 'SMK', 'Programmer', 'Laki', 'Relic', '2021-10-01', '2021-10-03'),
+('A-002', 'Uzumaki Sitoru', 'PT  sejahtera', 'Design1', 'Kerja', 'IT-02', 'Programmer', 'Tidak', 'Manusia biasa', 'SMK', 'Programmer', 'Laki', 'Relic', '2021-10-01', '2021-10-03');
 
 -- --------------------------------------------------------
 
