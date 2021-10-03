@@ -130,12 +130,16 @@ class Formecp extends CI_Controller {
 			$config['allowed_types'] = 'jpg|png|jpeg';
 
 			$this->load->library('upload', $config);
-			$this->upload->do_upload('image');
-			$data = [
-				'image' => $this->upload->data('file_name'),
-				'approve_status' => true
-			];
-			$this->formecpmodel->updateTo($table, $data, $id);
+			if($this->upload->do_upload('image')){
+				$data = [
+					'image' => $this->upload->data('file_name'),
+					'approve_status' => true
+				];
+				$this->formecpmodel->updateTo($table, $data, $id);
+				return true;
+			}
+			show_error('jpg, png and jpeg only!', 422, 'Bad Input');
 		}
+		show_error('Image is broken, please change to other image', 422, 'Image Error');
 	}
 }
