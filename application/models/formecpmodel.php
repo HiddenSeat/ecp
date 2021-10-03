@@ -5,7 +5,7 @@ class FormEcpModel extends CI_Model {
 	}
 
 	public function getEmployee(){
-		$query = $this->db->get('employee', 5);
+		$query = $this->db->like('emp_number', $_GET['emp_number'])->get('employee', 5);
 		return $query->result();
 	}
 

@@ -31,9 +31,11 @@ class Formecp extends CI_Controller {
 		$table = 'owningCompany';
 		$data = [
 			'emp_number' => $_POST['emp_number'],
-			'owned' => $_POST['owned'],
-			'amount' => $_POST['amount'],
+			'owned' => $_POST['owned']
 		];
+		if($data['owned']){
+			$data['amount'] = $_POST['amount'];
+		}
 		$id = $this->formecpmodel->insertTo($table, $data);
 		
 		$this->uploadImage($table, $id);
@@ -128,6 +130,7 @@ class Formecp extends CI_Controller {
 		if($_FILES['image']['error'] == 0){
 			$config['upload_path'] = FCPATH . 'public/assets/images';
 			$config['allowed_types'] = 'jpg|png|jpeg';
+			$config['encrypt_name'] = true;
 
 			$this->load->library('upload', $config);
 			if($this->upload->do_upload('image')){
@@ -138,7 +141,7 @@ class Formecp extends CI_Controller {
 				$this->formecpmodel->updateTo($table, $data, $id);
 				return true;
 			}
-			show_error('jpg, png and jpeg only!', 422, 'Bad Input');
+			show_error('jpg, png and jpeg format only!', 422, 'Bad Input');
 		}
 		show_error('Image is broken, please change to other image', 422, 'Image Error');
 	}
