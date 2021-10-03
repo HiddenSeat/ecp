@@ -9,8 +9,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Form input</title>
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
 		integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+	<style>
+		h2 {
+			font-size: 20px;
+		}
+
+		#employeeForm form {
+			margin-left: 20px;
+		}
+	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -54,13 +64,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<button class="btn btn-primary mt-2" id="submitEmployee" onclick="showForm()">Submit</button>
 
-		<section id="employeeForm" class="d-none">
-			<h1>Form</h1>
+		<section id="employeeForm" class="">
+			<h1 class="text-center">Form</h1>
 			<article>
 				<h2>1. Dues Blalbalbal</h2>
-				<form action="">
+				<form action="" class="">
 					<div class="form-group d-flex">
-						<p>1. Dues owning to the company</p>
+						<p>Dues owning to the company</p>
 						  <label for="html">Yes</label>
 						  <input type="radio" id="html" name="fav_language" value="Yes">
 						  <label for="css">No</label>
@@ -78,8 +88,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<article>
 				<h2>2. IT equipment lalalallalala</h2>
 				<form action="">
-					<div class="form-group d-flex">
-						<p>Laptop</p>
+					<div class="form-group d-flex" class="ps-2">
+						<p class="col-3">Laptop</p>
 						  <label for="html">Yes</label>
 						  <input type="radio" id="html" name="fav_language" value="Yes">
 						  <label for="css">No</label>
@@ -336,6 +346,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				console.log("nothing")
 			}
 		});
+
+		// load Data
 		$(document).ready(function () {
 			fetch(`http://localhost/ecp/employee?emp_number=a`)
 				.then(response => response.json())
