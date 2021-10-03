@@ -10,6 +10,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Form input</title>
 </head>
 <body>
+	<form action="/ecp/employee/resign" method="post">
+		<p>emp_number</p>
+		<input type="text" name="emp_number"/>
+		<p>leave date</p>
+		<input type="date" name="leave_date"/>
+		<br><input type="submit" value="submit"/>
+	</form>
+	<br><br>
+
 	<form action="/ecp/owning-company" method="post" enctype="multipart/form-data">
 		<p>emp_number</p>
 		<input type="text" name="emp_number"/>

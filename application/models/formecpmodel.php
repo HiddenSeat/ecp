@@ -11,6 +11,23 @@ class FormEcpModel extends CI_Model {
 
 	public function employeeResign($data){
 		$update = $this->db->update('employee', ['leave_date' => $data['leave_date']], ['emp_number' => $data['emp_number']]);
+
+		$relations = [
+			'employee',
+			'accesscard',
+			'companyinspected',
+			'emailclose',
+			'itequipment',
+			'owningcompany',
+			'personalprotective',
+			'phoneaccount',
+			'storeequipment'
+		];
+		$result = [];
+		foreach($relations as $relation){
+			$result[$relation] = $this->db->get_where($relation, ['emp_number' => $data['emp_number']])->result();
+		}
+		return $result;
 	}
 
 	public function insertTo($table, $data){

@@ -24,7 +24,9 @@ class Formecp extends CI_Controller {
 			'emp_number' => $_POST['emp_number'],
 			'leave_date' => $_POST['leave_date']
 		];
-		$this->formecpmodel->employeeResign($data);
+		$result = $this->formecpmodel->employeeResign($data);
+		header('Content-Type: application/json');
+		echo json_encode($result);
 	}
 
 	public function owningCompany(){
