@@ -152,57 +152,57 @@ class Formecp extends CI_Controller {
 
 	public function owningCompanyApprove(){
 		$table = 'owningCompany';
-		$id = $_POST['emp_number'];
-		$this->formecpmodel->approveTo($table, $data);
+		$id = $_GET['emp_number'];
+		$this->formecpmodel->approveTo($table, $id);
 		redirect('/form');
 	}
 
 	public function itEquipmentApprove(){
 		$table = 'itEquipment';
-		$id = $_POST['emp_number'];
-		$this->formecpmodel->approveTo($table, $data);
+		$id = $_GET['emp_number'];
+		$this->formecpmodel->approveTo($table, $id);
 		redirect('/form');
 	}
 
 	public function phoneAccountApprove(){
 		$table = 'phoneAccount';
-		$id = $_POST['emp_number'];
-		$this->formecpmodel->approveTo($table, $data);
+		$id = $_GET['emp_number'];
+		$this->formecpmodel->approveTo($table, $id);
 		redirect('/form');
 	}
 
 	public function vehicleApprove(){
 		$table = 'vehicle';
-		$id = $_POST['emp_number'];
-		$this->formecpmodel->approveTo($table, $data);
+		$id = $_GET['emp_number'];
+		$this->formecpmodel->approveTo($table, $id);
 		redirect('/form');
 	}
 
 	public function personalProtectiveApprove(){
 		$table = 'personalProtective';
-		$id = $_POST['emp_number'];
-		$this->formecpmodel->approveTo($table, $data);
+		$id = $_GET['emp_number'];
+		$this->formecpmodel->approveTo($table, $id);
 		redirect('/form');	
 	}
 
 	public function accessCardApprove(){
 		$table = 'accessCard';
-		$id = $_POST['emp_number'];
-		$this->formecpmodel->approveTo($table, $data);
+		$id = $_GET['emp_number'];
+		$this->formecpmodel->approveTo($table, $id);
 		redirect('/form');
 	}
 
 	public function storeEquipmentApprove(){
 		$table = 'storeEquipment';
-		$id = $_POST['emp_number'];
-		$this->formecpmodel->approveTo($table, $data);
+		$id = $_GET['emp_number'];
+		$this->formecpmodel->approveTo($table, $id);
 		redirect('/form');
 	}
 
 	public function companyInspectedApprove(){
 		$table = 'companyInspected';
-		$id = $_POST['emp_number'];
-		$this->formecpmodel->approveTo($table, $data);
+		$id = $_GET['emp_number'];
+		$this->formecpmodel->approveTo($table, $id);
 		redirect('/form');
 	}
 

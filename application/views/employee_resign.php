@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>Foto</p>
 		<input type="file" name="image"/>
 		<br><input type="submit" value="submit"/>
+		<a href="<?= base_url('form/owning-company/approve?emp_number='.$employee->emp_number) ?>" >Approve</a>
 	</form>
 </body>
 </html>

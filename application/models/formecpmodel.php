@@ -5,7 +5,7 @@ class FormEcpModel extends CI_Model {
 	}
 
 	public function getEmployee(){
-		$query = $this->db->like('emp_number', $_POST['emp_number'])->get('employee', 5);
+		$query = $this->db->get('employee');
 		return $query->result();
 	}
 
@@ -29,6 +29,7 @@ class FormEcpModel extends CI_Model {
 	}
 
 	public function employeeResign($data){
+		$this->employeeValidation($data['emp_number']);
 		$update = $this->db->update('employee', ['leave_date' => $data['leave_date']], ['emp_number' => $data['emp_number']]);
 	}
 

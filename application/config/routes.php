@@ -70,11 +70,11 @@ $route['form/store-equipment']['post'] = 'formecp/storeEquipment';
 $route['form/company-inspected']['post'] = 'formecp/companyInspected';
 
 //approve url, method post
-$route['form/owning-company/approve']['post'] = 'formecp/owningCompanyApprove';
-$route['form/it-equipment/approve']['post'] = 'formecp/itEquipmentApprove';
-$route['form/phone-account/approve']['post'] = 'formecp/phoneAccountApprove';
-$route['form/vehicle/approve']['post'] = 'formecp/vehicleApprove';
-$route['form/personal-protective/approve']['post'] = 'formecp/personalProtectiveApprove';
-$route['form/access-card/approve']['post'] = 'formecp/accessCardApprove';
-$route['form/store-equipment/approve']['post'] = 'formecp/storeEquipmentApprove';
-$route['form/company-inspected/approve']['post'] = 'formecp/companyInspectedApprove';
+$route['form/owning-company/approve'] = 'formecp/owningCompanyApprove';
+$route['form/it-equipment/approve'] = 'formecp/itEquipmentApprove';
+$route['form/phone-account/approve'] = 'formecp/phoneAccountApprove';
+$route['form/vehicle/approve'] = 'formecp/vehicleApprove';
+$route['form/personal-protective/approve'] = 'formecp/personalProtectiveApprove';
+$route['form/access-card/approve'] = 'formecp/accessCardApprove';
+$route['form/store-equipment/approve'] = 'formecp/storeEquipmentApprove';
+$route['form/company-inspected/approve'] = 'formecp/companyInspectedApprove';
