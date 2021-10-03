@@ -53,8 +53,11 @@ $route['default_controller'] = 'formecp/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
+//form url, method get
 $route['form'] = 'formecp/form';
 $route['employee'] = 'formecp/employeeAjax';
+
+//submit url, method post
 $route['employee/resign']['post'] = 'formecp/employeeResign';
 $route['form/owning-company']['post'] = 'formecp/owningCompany';
 $route['form/it-equipment']['post'] = 'formecp/itEquipment';
@@ -65,3 +68,14 @@ $route['form/personal-protective']['post'] = 'formecp/personalProtective';
 $route['form/access-card']['post'] = 'formecp/accessCard';
 $route['form/store-equipment']['post'] = 'formecp/storeEquipment';
 $route['form/company-inspected']['post'] = 'formecp/companyInspected';
+
+//approve url, method post
+$route['employee/resign/approve']['post'] = 'formecp/employeeResignApprove';
+$route['form/owning-company/approve']['post'] = 'formecp/owningCompanyApprove';
+$route['form/it-equipment/approve']['post'] = 'formecp/itEquipmentApprove';
+$route['form/phone-account/approve']['post'] = 'formecp/phoneAccountApprove';
+$route['form/vehicle/approve']['post'] = 'formecp/vehicleApprove';
+$route['form/personal-protective/approve']['post'] = 'formecp/personalProtectiveApprove';
+$route['form/access-card/approve']['post'] = 'formecp/accessCardApprove';
+$route['form/store-equipment/approve']['post'] = 'formecp/storeEquipmentApprove';
+$route['form/company-inspected/approve']['post'] = 'formecp/companyInspectedApprove';

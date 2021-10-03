@@ -47,6 +47,10 @@ class FormEcpModel extends CI_Model {
 		$this->db->update($table, $data, ['emp_number' => $id]);
 	}
 
+	public function approveTo($table, $id){
+		$this->db->update($table, ['approve_status' => true], ['emp_number' => $id]);
+	}
+
 	private function employeeValidation($emp_number){
 		$checkIfExists = $this->db->get_where('employee', ['emp_number' => $emp_number]);
 		if(!$checkIfExists->result()){

@@ -150,6 +150,62 @@ class Formecp extends CI_Controller {
 		redirect('/form');
 	}
 
+	public function owningCompanyApprove(){
+		$table = 'owningCompany';
+		$id = $_POST['emp_number'];
+		$this->formecpmodel->approveTo($table, $data);
+		redirect('/form');
+	}
+
+	public function itEquipmentApprove(){
+		$table = 'itEquipment';
+		$id = $_POST['emp_number'];
+		$this->formecpmodel->approveTo($table, $data);
+		redirect('/form');
+	}
+
+	public function phoneAccountApprove(){
+		$table = 'phoneAccount';
+		$id = $_POST['emp_number'];
+		$this->formecpmodel->approveTo($table, $data);
+		redirect('/form');
+	}
+
+	public function vehicleApprove(){
+		$table = 'vehicle';
+		$id = $_POST['emp_number'];
+		$this->formecpmodel->approveTo($table, $data);
+		redirect('/form');
+	}
+
+	public function personalProtectiveApprove(){
+		$table = 'personalProtective';
+		$id = $_POST['emp_number'];
+		$this->formecpmodel->approveTo($table, $data);
+		redirect('/form');	
+	}
+
+	public function accessCardApprove(){
+		$table = 'accessCard';
+		$id = $_POST['emp_number'];
+		$this->formecpmodel->approveTo($table, $data);
+		redirect('/form');
+	}
+
+	public function storeEquipmentApprove(){
+		$table = 'storeEquipment';
+		$id = $_POST['emp_number'];
+		$this->formecpmodel->approveTo($table, $data);
+		redirect('/form');
+	}
+
+	public function companyInspectedApprove(){
+		$table = 'companyInspected';
+		$id = $_POST['emp_number'];
+		$this->formecpmodel->approveTo($table, $data);
+		redirect('/form');
+	}
+
 	private function uploadImage($table, $id){
 		if($_FILES['image']['error'] == 0){
 			$config['upload_path'] = FCPATH . 'public/assets/images';
